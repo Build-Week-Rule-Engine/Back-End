@@ -4,7 +4,7 @@
 
 ### Types
 
-#### `*User`
+#### `User`
 
 ```js
 type User = {
