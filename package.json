@@ -9,9 +9,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev:start": "cross-env SERVER_ENV=development nodemon index.js",
-    "test:start": "cross-env SERVER_ENV=testing jest --watch",
-    "test:once": "cross-env SERVER_ENV=testing jest"
+    "dev:start": "cross-env NODE_ENV=development nodemon index.js",
+    "test:start": "cross-env NODE_ENV=testing jest --watch",
+    "test:once": "cross-env NODE_ENV=testing jest"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
