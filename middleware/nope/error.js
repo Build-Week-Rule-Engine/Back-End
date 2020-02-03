@@ -1,10 +1,10 @@
 /**************************************/
 
-module.exports = respondWithError
+module.exports = error
 
 /**************************************/
 
-function respondWithError (statusCode, errorMessage) {
+function error (statusCode, errorMessage) {
   return (ri, ro) => (
     ro
     .status (statusCode)
