@@ -7,18 +7,24 @@ const {
   middleware : {
     nope
   },
+  routes,
 } = require ('./__needs')
 
-const _middleware = require ('./_middleware')
-const _routes = require ('./_routes')
 
 /**************************************/
 
 const app = Server ()
 
 app.use ('/',
-  _middleware (),
-  _routes,
+
+  require ('helmet') (),
+  require ('cors') (),
+  require ('morgan') ('dev'),
+  require ('express').json (),
+
+  routes['auth'],
+  routes['api'],
+
 )
 
 router.use ('*',
