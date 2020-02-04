@@ -58,7 +58,7 @@ router.route (BASE + '/sign-up')
     })
     .catch ((error) => {
 
-      nope.error (error) (ri, ro)
+      nope.error (500, error) (ri, ro)
 
     })
 
@@ -102,7 +102,7 @@ router.route (BASE + '/sign-in')
     })
     .catch ((error) => {
 
-      nope.error (error) (ri, ro)
+      nope.error (500, error) (ri, ro)
 
     })
 
