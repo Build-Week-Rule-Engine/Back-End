@@ -2,20 +2,20 @@
   app
 ***********************************************************/
 
+const BASE = '/'
+
 const {
   Server,
   middleware : {
     nope
   },
-  routes,
 } = require ('./__needs')
-
 
 /**************************************/
 
 const app = Server ()
 
-app.use ('/',
+app.use (BASE,
 
   require ('helmet') (),
   require ('cors') (),
