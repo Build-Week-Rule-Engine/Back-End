@@ -54,8 +54,8 @@ type FailureResponse = {
 
 ### User Auth Routes
 
-| route                | method | description                            | auth? | `request.body`        | `response.body` | status     |
-|----------------------|--------|----------------------------------------|-------|-----------------------|-----------------|------------|
+| route            | method | description                            | auth? | `request.body`        | `response.body` | status     |
+|------------------|--------|----------------------------------------|-------|-----------------------|-----------------|------------|
 | `/auth/sign-up`  | `POST` | Sign up (register) a new user.         | no    | `Auth_SignUp_Request` | `Auth_Response` | **online** |
 | `/auth/sign-in`  | `POST` | Sign in (login) as an existing user.   | no    | `Auth_SignIn_Request` | `Auth_Response` | **online** |
 | `/auth/sign-out` | `POST` | Sign out (logout) as an existing user. | yes   | none                  | TBD             | stretch    |
