@@ -3,7 +3,7 @@
 require ('dotenv').config ()
 
 const app = require ('./app')
-const port = require ('./config/app').port
+const port = require ('./config').app.port
 
 app.listen (port, () => {
   console.log (`it's alive!`)
