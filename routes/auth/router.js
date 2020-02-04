@@ -28,7 +28,7 @@ router.route (BASE)
 
 })
 
-router.route ('/sign-up')
+router.route (BASE + '/sign-up')
 .post ((ri, ro) => {
 
   const { username, email, password } = ri.body
@@ -69,7 +69,7 @@ router.route ('/sign-up')
 
 })
 
-router.route ('/sign-in')
+router.route (BASE + '/sign-in')
 .post ((ri, ro) => {
 
   const { username, password } = ri.body
