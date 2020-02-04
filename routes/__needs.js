@@ -7,8 +7,8 @@ module.exports = {
   Router,
 
   config : require ('../config'),
+  data : require ('../data'),
   middleware : require ('../middleware'),
-  models : require ('../models'),
   tools : require ('../tools'),
 
 }

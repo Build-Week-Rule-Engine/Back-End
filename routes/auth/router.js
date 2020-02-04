@@ -7,7 +7,7 @@ const BASE = '/auth'
 const {
   Router,
   middleware : { amigx, nope },
-  models : { Users },
+  data : { models : { Users } },
 } = require ('./__needs')
 
 const bcrypt = require ('bcryptjs')
