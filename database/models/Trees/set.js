@@ -10,6 +10,7 @@ const _publicFields = require ('./_publicFields')
 const get = require ('./get')
 
 async function set (tree_value, _where, _select = _publicFields) {
+
   await (
     db ('Trees')
     .where (_where)
@@ -19,4 +20,5 @@ async function set (tree_value, _where, _select = _publicFields) {
   let tree_records = await get (_where, _select)
 
   return tree_records
+
 }

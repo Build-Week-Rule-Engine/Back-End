@@ -9,6 +9,7 @@ const { db } = require ('./__needs')
 const _publicFields = require ('./_publicFields')
 
 async function getFirst (_where, _select = _publicFields) {
+
   let form_record = await (
     db ('Forms')
     .first (_select)
@@ -16,4 +17,5 @@ async function getFirst (_where, _select = _publicFields) {
   )
 
   return form_record
+
 }

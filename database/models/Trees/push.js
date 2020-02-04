@@ -10,6 +10,7 @@ const _publicFields = require ('./_publicFields')
 const getFirst = require ('./getFirst')
 
 async function push (tree_values, _select = _publicFields) {
+
   const _ids = await (
     db ('Trees')
     .insert (tree_values, [ '_id' ])
@@ -22,4 +23,5 @@ async function push (tree_values, _select = _publicFields) {
   )
 
   return tree_records
+
 }

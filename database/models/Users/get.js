@@ -9,6 +9,7 @@ const { db } = require ('./__needs')
 const _publicFields = require ('./_publicFields')
 
 async function get (_where, _select = _publicFields) {
+
   let user_records = await (
     db ('Users')
     .select (_select)
@@ -16,4 +17,5 @@ async function get (_where, _select = _publicFields) {
   )
 
   return user_records
+
 }
