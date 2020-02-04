@@ -7,7 +7,7 @@ module.exports = authenticate
 /**************************************/
 
 const jwt = require ('jsonwebtoken')
-const { config : { jwtSecret } } = require ('./__needs')
+const { config } = require ('./__needs')
 const nope = require ('../nope')
 
 /**************************************/
@@ -18,7 +18,7 @@ function authenticate (ri, ro, next) {
 
   if (token) {
 
-    jwt.verify (token, jwtSecret, (error, decrypted) => {
+    jwt.verify (token, config.JWT_SECRET, (error, decrypted) => {
 
       if (error) {
 
@@ -28,8 +28,9 @@ function authenticate (ri, ro, next) {
       else {
 
         ri.user = {
-          _id : decrypted.id,
+          _id : decrypted._id,
           username : decrypted.username,
+          email : decrypted.email,
         }
 
         next ()

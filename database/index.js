@@ -2,7 +2,7 @@
 
 module.exports = {
 
-  Users : {}
-  /* ... */
+  db : require ('./db'),
+  models : require ('./models'),
 
 }
