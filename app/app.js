@@ -22,8 +22,8 @@ app.use ('/',
   require ('morgan') ('dev'),
   require ('express').json (),
 
-  routes['auth'],
-  routes['api'],
+  require ('../routes/auth'),
+  require ('../routes/api'),
 
 )
 
