@@ -7,7 +7,7 @@ module.exports = signToken
 /**************************************/
 
 const jwt = require ('jsonwebtoken')
-const { config : { jwtSecret } } = require ('./__needs')
+const { config } = require ('./__needs')
 
 /**************************************/
 
@@ -23,5 +23,5 @@ function signToken (user) {
     expiresIn : '1d',
   }
 
-  return jwt.sign (payload, jwtSecret, options)
+  return jwt.sign (payload, config.JWT_SECRET, options)
 }
