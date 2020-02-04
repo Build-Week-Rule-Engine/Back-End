@@ -2,6 +2,8 @@
 
 module.exports = {
 
-  tools : require ('../tools'),
+  ...require ('../__needs'),
+
+  db : require ('../db'),
 
 }

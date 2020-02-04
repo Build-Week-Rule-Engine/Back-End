@@ -2,20 +2,18 @@
   app
 ***********************************************************/
 
+const BASE = '/'
+
 const {
   Server,
-  middleware : {
-    nope
-  },
-  routes,
+  middleware : { nope },
 } = require ('./__needs')
-
 
 /**************************************/
 
 const app = Server ()
 
-app.use ('/',
+app.use (BASE,
 
   require ('helmet') (),
   require ('cors') (),
@@ -27,7 +25,24 @@ app.use ('/',
 
 )
 
-router.use ('*',
+app.route (BASE)
+.get ((ri, ro) => {
+
+  ro
+  .status (200)
+  .json ({
+    'message' : 'Hello. Please refer to the available routes.',
+    'routes' : {
+      [BASE] : [ 'GET' ],
+      '/auth' : [ 'GET' ],
+      '/api' : [ 'GET' ],
+    },
+  })
+
+})
+
+app.route ('*')
+.all (
   nope.notImplemented (),
 )
 

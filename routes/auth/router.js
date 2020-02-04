@@ -4,14 +4,10 @@
 
 const BASE = '/auth'
 
-const {
-  Router,
-  middleware : { amigx, nope },
-  models : { Users },
-} = require ('./__needs')
+const { Router } = require ('./__needs')
 
-const bcrypt = require ('bcryptjs')
-const signToken = require ('./signToken')
+const signUp = require ('./sign-up')
+const signIn = require ('./sign-in')
 
 /**************************************/
 
@@ -23,92 +19,20 @@ router.route (BASE)
   ro
   .status (200)
   .json ({
-    'message' : 'hello world',
+    'message' : 'Hello. Please refer to the available routes.',
+    'routes' : {
+      '/sign-up' : [ 'POST' ],
+      '/sign-in' : [ 'POST' ],
+    },
   })
 
 })
 
-router.route ('/sign-up')
-.post ((ri, ro) => {
+router.route (BASE + '/sign-up')
+.post (signUp)
 
-  const { username, password } = ri.body
-
-  if (username && password) {
-
-    const data = {
-      username,
-      hash : bcrypt.hashSync (password, 10)
-    }
-
-    Users.push (data)
-    .then ((user) => {
-
-      const token = signToken (user)
-      amigx.welcome ({
-        _id : user._id,
-        username : user.username,
-      }, token) (ri, ro)
-
-    })
-    .catch ((error) => {
-
-      nope.error (error) (ri, ro)
-
-    })
-
-  }
-  else {
-
-    nope.badRequest () (ri, ro)
-
-  }
-
-  return
-
-})
-
-router.route ('/sign-in')
-.post ((ri, ro) => {
-
-  const { username, password } = ri.body
-
-  if (username && password) {
-
-    Users.findBy ({ username }, '*')
-    .then (([ user ]) => {
-
-      if (user && bcrypt.compareSync (password, user.hash)) {
-
-        const token = signToken (user)
-        amigx.welcome ({
-          _id : user._id,
-          username : user.username,
-        }, token) (ri, ro)
-
-      }
-      else {
-
-        nope.invalidCredentials () (ri, ro)
-
-      }
-
-    })
-    .catch ((error) => {
-
-      nope.error (error) (ri, ro)
-
-    })
-
-  }
-  else {
-
-    nope.badRequest () (ri, ro)
-
-  }
-
-  return
-
-})
+router.route (BASE + '/sign-in')
+.post (signIn)
 
 /**************************************/
 
