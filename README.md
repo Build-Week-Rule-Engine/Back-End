@@ -4,29 +4,25 @@
 
 ### Types
 
-#### `Forms`
-
 ```ts
+/// Forms ///
+
 type Form = {
   _id : number,
   name : string,
   data : object,
 }
-```
 
-#### `Trees`
+/// Trees ///
 
-```ts
 type Tree = {
   _id : number,
   name : string,
   data : object,
 }
-```
 
-#### `Users`
+/// Users ///
 
-```ts
 type OwnUser = {
   _id : number,
   username : string,
@@ -37,18 +33,14 @@ type OtherUser = {
   _id : number,
   username : string,
 }
-```
 
-#### `Responses`
+/// Responses ///
 
-```ts
 type SuccessResponse = {
   message : string,
   ...object,
 }
-```
 
-```ts
 type FailureResponse = {
   error : {
     message : string | object,
@@ -71,6 +63,8 @@ type FailureResponse = {
 #### Types
 
 ```ts
+/// Requests ///
+
 type Auth_SignUp_Request = {
   email : string,
   username : string,
@@ -81,6 +75,8 @@ type Auth_SignIn_Request = {
   username : string,
   password : string,
 }
+
+/// Responses ///
 
 type Auth_Response = Auth_SuccessResponse | Auth_FailureResponse
 
