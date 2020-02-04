@@ -7,7 +7,7 @@ module.exports = {
   Router,
 
   config : require ('../config'),
-  data : require ('../data'),
+  database : require ('../database'),
   middleware : require ('../middleware'),
   tools : require ('../tools'),
 

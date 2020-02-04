@@ -6,14 +6,14 @@ module.exports = {
     client : 'sqlite3',
     useNullAsDefault : true,
     connection : {
-      filename : './data/dev.db3',
+      filename : './database/dev.db3',
     },
     migrations : {
-      directory : './data/migrations',
+      directory : './database/migrations',
       tableName : 'knex_migrations',
     },
     seeds : {
-      directory : './data/seeds',
+      directory : './database/seeds',
     },
   },
 
@@ -21,14 +21,14 @@ module.exports = {
     client : 'sqlite3',
     useNullAsDefault : true,
     connection : {
-      filename : './data/test.db3',
+      filename : './database/test.db3',
     },
     migrations : {
-      directory : './data/migrations',
+      directory : './database/migrations',
       tableName : 'knex_migrations',
     },
     seeds : {
-      directory : './data/seeds',
+      directory : './database/seeds',
     },
   },
 
