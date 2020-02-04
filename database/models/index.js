@@ -2,9 +2,9 @@
 
 module.exports = {
 
-  Forms : require ('./forms'),
-  Trees : require ('./trees'),
-  Users : require ('./users'),
+  Forms : require ('./Forms'),
+  Trees : require ('./Trees'),
+  Users : require ('./Users'),
   /* ... */
 
 }
