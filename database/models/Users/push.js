@@ -11,7 +11,7 @@ const getFirst = require ('./getFirst')
 
 async function push (user_values, _select = _publicFields) {
   const _ids = await (
-    db ('users')
+    db ('Users')
     .insert (user_values, [ '_id' ])
   )
 

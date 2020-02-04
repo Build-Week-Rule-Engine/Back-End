@@ -10,7 +10,7 @@ const _publicFields = require ('./_publicFields')
 
 async function getAll (_select = _publicFields) {
   let tree_records = await (
-    db ('trees')
+    db ('Trees')
     .select (_select)
   )
 

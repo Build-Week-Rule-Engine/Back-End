@@ -11,7 +11,7 @@ const get = require ('./get')
 
 async function set (form_value, _where, _select = _publicFields) {
   await (
-    db ('forms')
+    db ('Forms')
     .where (_where)
     .update (form_value)
   )

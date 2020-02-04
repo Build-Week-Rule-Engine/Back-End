@@ -13,7 +13,7 @@ async function pull (_where, _select = _publicFields) {
   let form_records = await get (_where, _select)
 
   await (
-    db ('forms')
+    db ('Forms')
     .where (_where)
     .delete ()
   )

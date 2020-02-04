@@ -10,7 +10,7 @@ const _publicFields = require ('./_publicFields')
 
 async function getFirst (_where, _select = _publicFields) {
   let form_record = await (
-    db ('forms')
+    db ('Forms')
     .first (_select)
     .where (_where)
   )

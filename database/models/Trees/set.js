@@ -11,7 +11,7 @@ const get = require ('./get')
 
 async function set (tree_value, _where, _select = _publicFields) {
   await (
-    db ('trees')
+    db ('Trees')
     .where (_where)
     .update (tree_value)
   )
