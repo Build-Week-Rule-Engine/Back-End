@@ -2,7 +2,7 @@
 
 module.exports = {
 
-  db : require ('./db-config'),
+  db : require ('./db'),
   models : require ('./models'),
 
 }

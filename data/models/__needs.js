@@ -4,6 +4,6 @@ module.exports = {
 
   ...require ('../__needs'),
 
-  db : require ('../db-config'),
+  db : require ('../db'),
 
 }
