@@ -4,14 +4,10 @@
 
 const BASE = '/auth'
 
-const {
-  Router,
-  middleware : { amigx, nope },
-  database : { models : { Users } },
-} = require ('./__needs')
+const { Router } = require ('./__needs')
 
-const bcrypt = require ('bcryptjs')
-const signToken = require ('./signToken')
+const signUp = require ('./sign-up')
+const signIn = require ('./sign-in')
 
 /**************************************/
 
@@ -33,91 +29,10 @@ router.route (BASE)
 })
 
 router.route (BASE + '/sign-up')
-.post ((ri, ro) => {
-
-  const { username, email, password } = ri.body
-
-  if (username && email && password) {
-
-    const data = {
-      username,
-      email,
-      hash : bcrypt.hashSync (password, 10)
-    }
-
-    Users.push (data, Users._ownFields)
-    .then (([ user ]) => {
-
-      console.log (user)
-
-      const token = signToken (user)
-      amigx.welcome ({
-        _id : user._id,
-        username : user.username,
-        email : user.email,
-      }, token) (ri, ro)
-
-    })
-    .catch ((error) => {
-
-      nope.error (500, error) (ri, ro)
-
-    })
-
-  }
-  else {
-
-    nope.badRequest () (ri, ro)
-
-  }
-
-  return
-
-})
+.post (signUp)
 
 router.route (BASE + '/sign-in')
-.post ((ri, ro) => {
-
-  const { username, password } = ri.body
-
-  if (username && password) {
-
-    Users.get ({ username }, '*')
-    .then (([ user ]) => {
-
-      if (user && bcrypt.compareSync (password, user.hash)) {
-
-        const token = signToken (user)
-        amigx.welcome ({
-          _id : user._id,
-          username : user.username,
-          email : user.email,
-        }, token) (ri, ro)
-
-      }
-      else {
-
-        nope.invalidCredentials () (ri, ro)
-
-      }
-
-    })
-    .catch ((error) => {
-
-      nope.error (500, error) (ri, ro)
-
-    })
-
-  }
-  else {
-
-    nope.badRequest () (ri, ro)
-
-  }
-
-  return
-
-})
+.post (signIn)
 
 /**************************************/
 
