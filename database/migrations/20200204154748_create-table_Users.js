@@ -4,8 +4,10 @@ module.exports = { up, down }
 
 /**************************************/
 
+const TABLE = 'Users'
+
 function up (knex) {
-  return knex.schema.createTable ('users', table => {
+  return knex.schema.createTable (TABLE, table => {
 
     table
     .increments ('_id')
@@ -28,5 +30,5 @@ function up (knex) {
 }
 
 function down (knex) {
-  return knex.schema.dropTableIfExists ('users')
+  return knex.schema.dropTableIfExists (TABLE)
 }
