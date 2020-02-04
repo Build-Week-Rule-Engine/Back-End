@@ -28,8 +28,9 @@ function authenticate (ri, ro, next) {
       else {
 
         ri.user = {
-          _id : decrypted.id,
+          _id : decrypted._id,
           username : decrypted.username,
+          email : decrypted.email,
         }
 
         next ()

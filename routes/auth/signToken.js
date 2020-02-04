@@ -14,8 +14,9 @@ const { config : { jwtSecret } } = require ('./__needs')
 function signToken (user) {
 
   const payload = {
-    id : user._id,
-    name : user.username,
+    _id : user._id,
+    username : user.username,
+    email : user.email,
   }
 
   const options = {

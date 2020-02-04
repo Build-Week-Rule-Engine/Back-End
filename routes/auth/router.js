@@ -31,12 +31,13 @@ router.route (BASE)
 router.route ('/sign-up')
 .post ((ri, ro) => {
 
-  const { username, password } = ri.body
+  const { username, email, password } = ri.body
 
-  if (username && password) {
+  if (username && email && password) {
 
     const data = {
       username,
+      email,
       hash : bcrypt.hashSync (password, 10)
     }
 
@@ -47,6 +48,7 @@ router.route ('/sign-up')
       amigx.welcome ({
         _id : user._id,
         username : user.username,
+        email : user.email,
       }, token) (ri, ro)
 
     })
@@ -83,6 +85,7 @@ router.route ('/sign-in')
         amigx.welcome ({
           _id : user._id,
           username : user.username,
+          email : user.email,
         }, token) (ri, ro)
 
       }
