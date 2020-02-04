@@ -26,7 +26,15 @@ router.route (BASE)
   ro
   .status (200)
   .json ({
-    'message' : 'hello world',
+    'message' : 'Hello. Please refer to the available routes.',
+    'routes' : {
+      '/forms' : [ 'GET' ],
+      '/forms/:form_id' : [ 'GET' ],
+      '/trees' : [ 'GET', 'POST' ],
+      '/trees/:tree_id' : [ 'GET', 'PUT', 'DELETE' ],
+      '/users' : [ 'GET' ],
+      '/users/:user_id' : [ 'GET' ],
+    },
   })
 
 })

@@ -23,7 +23,11 @@ router.route (BASE)
   ro
   .status (200)
   .json ({
-    'message' : 'hello world',
+    'message' : 'Hello. Please refer to the available routes.',
+    'routes' : {
+      '/sign-up' : [ 'POST' ],
+      '/sign-in' : [ 'POST' ],
+    },
   })
 
 })

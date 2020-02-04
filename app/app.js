@@ -6,9 +6,7 @@ const BASE = '/'
 
 const {
   Server,
-  middleware : {
-    nope
-  },
+  middleware : { nope },
 } = require ('./__needs')
 
 /**************************************/
@@ -27,7 +25,24 @@ app.use (BASE,
 
 )
 
-app.use ('*',
+app.route (BASE)
+.get ((ri, ro) => {
+
+  ro
+  .status (200)
+  .json ({
+    'message' : 'Hello. Please refer to the available routes.',
+    'routes' : {
+      [BASE] : [ 'GET' ],
+      '/auth' : [ 'GET' ],
+      '/api' : [ 'GET' ],
+    },
+  })
+
+})
+
+app.route ('*')
+.all (
   nope.notImplemented (),
 )
 
