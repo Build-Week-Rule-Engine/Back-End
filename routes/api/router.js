@@ -14,9 +14,9 @@ const router = Router ()
 
 router.use (BASE,
 
-  // require ('../forms'),
-  // require ('../trees'),
-  // require ('../users'),
+  require ('../forms'),
+  require ('../trees'),
+  require ('../users'),
 
 )
 
