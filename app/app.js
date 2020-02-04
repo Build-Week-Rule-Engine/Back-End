@@ -27,7 +27,7 @@ app.use ('/',
 
 )
 
-router.use ('*',
+app.use ('*',
   nope.notImplemented (),
 )
 
