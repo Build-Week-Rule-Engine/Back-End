@@ -45,8 +45,10 @@ router.route (BASE + '/sign-up')
       hash : bcrypt.hashSync (password, 10)
     }
 
-    Users.push (data)
-    .then ((user) => {
+    Users.push (data, Users._ownFields)
+    .then (([ user ]) => {
+
+      console.log (user)
 
       const token = signToken (user)
       amigx.welcome ({
@@ -80,7 +82,7 @@ router.route (BASE + '/sign-in')
 
   if (username && password) {
 
-    Users.findBy ({ username }, '*')
+    Users.get ({ username }, '*')
     .then (([ user ]) => {
 
       if (user && bcrypt.compareSync (password, user.hash)) {
