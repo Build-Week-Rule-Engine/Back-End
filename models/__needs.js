@@ -1,14 +1,9 @@
 /**************************************/
 
-const { Router } = require ('../common')
-
 module.exports = {
 
-  Router,
-
+  data : require ('../data'),
   config : require ('../config'),
-  middleware : require ('../middleware'),
-  models : require ('../models'),
   tools : require ('../tools'),
 
 }
