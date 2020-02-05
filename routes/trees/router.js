@@ -9,6 +9,7 @@ const { Router } = require ('./__needs')
 const getAllTrees = require ('./getAllTrees')
 const pushTree = require ('./pushTree')
 const getTreeByID = require ('./getTreeByID')
+const setTreeByID = require ('./setTreeByID')
 
 /**************************************/
 
@@ -20,6 +21,7 @@ router.route (BASE)
 
 router.route (BASE + BY_ID)
 .get (getTreeByID)
+.put (setTreeByID)
 
 /**************************************/
 
