@@ -1,7 +1,5 @@
 # Back-End
 
-## API
-
 ### Types
 
 ```ts
@@ -52,7 +50,9 @@ type FailureResponse = {
 }
 ```
 
-### Auth Routes
+## Auth
+
+### Routes
 
 | route            | method | description                            | auth? | `request.body`        | `response.body` | status     |
 |------------------|--------|----------------------------------------|-------|-----------------------|-----------------|------------|
@@ -87,6 +87,8 @@ type Auth_SuccessResponse = SuccessResponse & {
 
 type Auth_FailureResponse = FailureResponse
 ```
+
+## API
 
 ### Forms Routes
 
