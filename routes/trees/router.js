@@ -3,6 +3,7 @@
 ***********************************************************/
 
 const BASE = '/trees'
+const BY_ID = '/:tree_id'
 
 const {
   Router,
@@ -22,7 +23,7 @@ router.route (BASE)
     'message' : 'hello world',
   })
 
-})
+router.route (BASE + BY_ID)
 
 /**************************************/
 
