@@ -7,9 +7,12 @@ module.exports = push
 const { db } = require ('./__needs')
 
 const _publicFields = require ('./_publicFields')
+const _convertToDB = require ('./_convertToDB')
 const getFirst = require ('./getFirst')
 
 async function push (tree_values, _select = _publicFields) {
+
+  tree_values = tree_values.map (_convertToDB)
 
   const _ids = await (
     db ('Trees')
