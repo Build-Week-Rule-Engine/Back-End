@@ -105,12 +105,12 @@ type Auth_FailureResponse = FailureResponse
 
 type Forms_POST_Request = {
   name : string,
-  data : string,
+  data : object,
 }
 
 type Forms_PUT_Request = {
   name ?: string,
-  data ?: string,
+  data ?: object,
 }
 ```
 
@@ -130,13 +130,13 @@ type Forms_PUT_Request = {
 type Trees_POST_Request = {
   form_id : number,
   name : string,
-  data : string,
+  data : object,
 }
 
 type Trees_PUT_Request = {
   form_id ?: number,
   name ?: string,
-  data ?: string,
+  data ?: object,
 }
 ```
 
