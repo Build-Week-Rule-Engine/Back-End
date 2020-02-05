@@ -11,6 +11,12 @@ type Form = {
   data : object,
 }
 
+type InternalForm = {
+  _id : number,
+  name : string,
+  data : string,
+}
+
 /// Trees ///
 
 type Tree = {
@@ -18,6 +24,13 @@ type Tree = {
   form_id : number,
   name : string,
   data : object,
+}
+
+type InternalTree = {
+  _id : number,
+  form_id : number,
+  name : string,
+  data : string,
 }
 
 /// Users ///
@@ -29,9 +42,12 @@ type User = {
   username : string,
 }
 
-type PublicUser = {
+type InternalUser = {
   _id : number,
+  name : string | null,
+  email : string,
   username : string,
+  hash : string,
 }
 
 /// Responses ///
