@@ -15,7 +15,7 @@ function pushForm (ri, ro) {
 
   const data = ri.body
 
-  Forms.push (data)
+  Forms.push ([ data ])
   .then ((form) => {
 
     ro
