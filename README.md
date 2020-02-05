@@ -90,8 +90,8 @@ type Auth_FailureResponse = FailureResponse
 
 ### Forms Routes
 
-| route                 | method   | description                      | auth? | `request.body`       | `response.body`                  | status          |
-|-----------------------|----------|----------------------------------|-------|----------------------|----------------------------------|-----------------|
+| route                 | method   | description                      | auth? | `request.body`       | `response.body`                   | status          |
+|-----------------------|----------|----------------------------------|-------|----------------------|-----------------------------------|-----------------|
 | `/api/forms`          | `GET`    | Get a list of all forms.         | TBD   | none                 | `Array <Form> \| FailureResponse` | **in progress** |
 | `/api/forms`          | `POST`   | Add a new form.                  | TBD   | `Forms_POST_Request` | `Form \| FailureResponse`         | **in progress** |
 | `/api/forms/:form_id` | `GET`    | Get a specific form by `_id`.    | TBD   | none                 | `Form \| FailureResponse`         | **in progress** |
@@ -114,8 +114,8 @@ type Forms_PUT_Request = {
 
 ### Trees Routes
 
-| route                 | method   | description                      | auth? | `request.body`       | `response.body`                  | status          |
-|-----------------------|----------|----------------------------------|-------|----------------------|----------------------------------|-----------------|
+| route                 | method   | description                      | auth? | `request.body`       | `response.body`                   | status          |
+|-----------------------|----------|----------------------------------|-------|----------------------|-----------------------------------|-----------------|
 | `/api/trees`          | `GET`    | Get a list of all trees.         | TBD   | none                 | `Array <Tree> \| FailureResponse` | **in progress** |
 | `/api/trees`          | `POST`   | Add a new tree.                  | TBD   | `Trees_POST_Request` | `Tree \| FailureResponse`         | **in progress** |
 | `/api/trees/:tree_id` | `GET`    | Get a specific tree by `_id`.    | TBD   | none                 | `Tree \| FailureResponse`         | **in progress** |
@@ -140,8 +140,8 @@ type Trees_PUT_Request = {
 
 ### Users Routes
 
-| route                 | method | description                 | auth? | `request.body` | `response.body`                        | status          |
-|-----------------------|--------|-----------------------------|-------|----------------|----------------------------------------|-----------------|
+| route                 | method | description                 | auth? | `request.body` | `response.body`                         | status          |
+|-----------------------|--------|-----------------------------|-------|----------------|-----------------------------------------|-----------------|
 | `/api/users`          | `GET`  | Get list of all users.      | TBD   | none           | `Array <PublicUser> \| FailureResponse` | **in progress** |
 | `/api/users/:user_id` | `GET`  | Get specific list by `_id`. | TBD   | none           | `PublicUser \| FailureResponse`         | **in progress** |
 
