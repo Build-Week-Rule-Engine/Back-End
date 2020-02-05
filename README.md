@@ -15,16 +15,18 @@ type Form = {
 
 type Tree = {
   _id : number,
+  form_id : number,
   name : string,
   data : object,
 }
 
 /// Users ///
 
-type OwnUser = {
+type User = {
   _id : number,
-  username : string,
+  name : string | null,
   email : string,
+  username : string,
 }
 
 type PublicUser = {
@@ -81,7 +83,7 @@ type Auth_SignIn_Request = {
 type Auth_Response = Auth_SuccessResponse | Auth_FailureResponse
 
 type Auth_SuccessResponse = SuccessResponse & {
-  user : OwnUser,
+  user : User,
   token : string,
 }
 
@@ -142,7 +144,7 @@ type Trees_PUT_Request = {
 
 ### Users Routes
 
-| route                 | method | description                 | auth? | `request.body` | `response.body`                         | status     |
-|-----------------------|--------|-----------------------------|-------|----------------|-----------------------------------------|------------|
-| `/api/users`          | `GET`  | Get list of all users.      | TBD   | none           | `Array <PublicUser> \| FailureResponse` | **online** |
-| `/api/users/:user_id` | `GET`  | Get specific list by `_id`. | TBD   | none           | `PublicUser \| FailureResponse`         | **online** |
+| route                 | method | description                 | auth? | `request.body` | `response.body`                   | status     |
+|-----------------------|--------|-----------------------------|-------|----------------|-----------------------------------|------------|
+| `/api/users`          | `GET`  | Get list of all users.      | TBD   | none           | `Array <User> \| FailureResponse` | **online** |
+| `/api/users/:user_id` | `GET`  | Get specific list by `_id`. | TBD   | none           | `User \| FailureResponse`         | **online** |
