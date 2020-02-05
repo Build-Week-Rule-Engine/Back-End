@@ -9,6 +9,7 @@ const { Router } = require ('./__needs')
 const getAllForms = require ('./getAllForms')
 const pushForm = require ('./pushForm')
 const getFormByID = require ('./getFormByID')
+const setFormByID = require ('./setFormByID')
 
 /**************************************/
 
@@ -20,6 +21,8 @@ router.route (BASE)
 
 router.route (BASE + BY_ID)
 .get (getFormByID)
+.put (setFormByID)
+// .delete (pullFormByID)
 
 /**************************************/
 
