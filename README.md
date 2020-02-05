@@ -111,6 +111,14 @@ type Forms_PUT_Request = {
   data ?: string,
 }
 ```
+
+### Users Routes
+
+| route                 | method | description                 | auth? | `request.body` | `response.body`                        | status          |
+|-----------------------|--------|-----------------------------|-------|----------------|----------------------------------------|-----------------|
+| `/api/users`          | `GET`  | Get list of all users.      | TBD   | none           | `Array <PublicUser> | FailureResponse` | **in progress** |
+| `/api/users/:user_id` | `GET`  | Get specific list by `_id`. | TBD   | none           | `PublicUser | FailureResponse`         | **in progress** |
+
 ### More Routes...
 
 TBD
