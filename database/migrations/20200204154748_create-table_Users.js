@@ -29,7 +29,7 @@ function up (knex) {
 
     table
     .string ('hash', 255)
-    .notNullable ()
+    .nullable ()
 
   })
 }
