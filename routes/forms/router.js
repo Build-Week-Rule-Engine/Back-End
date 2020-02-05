@@ -10,6 +10,7 @@ const getAllForms = require ('./getAllForms')
 const pushForm = require ('./pushForm')
 const getFormByID = require ('./getFormByID')
 const setFormByID = require ('./setFormByID')
+const pullFormByID = require ('./pullFormByID')
 
 /**************************************/
 
@@ -22,7 +23,7 @@ router.route (BASE)
 router.route (BASE + BY_ID)
 .get (getFormByID)
 .put (setFormByID)
-// .delete (pullFormByID)
+.delete (pullFormByID)
 
 /**************************************/
 
