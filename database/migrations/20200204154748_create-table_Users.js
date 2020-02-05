@@ -13,8 +13,8 @@ function up (knex) {
     .increments ('_id')
 
     table
-    .string ('username', 255)
-    .notNullable ()
+    .string ('name', 255)
+    .nullable ()
     .unique ()
 
     table
@@ -23,8 +23,13 @@ function up (knex) {
     .unique ()
 
     table
-    .string ('hash', 255)
+    .string ('username', 255)
     .notNullable ()
+    .unique ()
+
+    table
+    .string ('hash', 255)
+    .nullable ()
 
   })
 }

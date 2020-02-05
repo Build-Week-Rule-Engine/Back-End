@@ -9,6 +9,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "knex:rebuild": "knex migrate:rollback && knex migrate:latest && knex seed:run",
     "dev:start": "cross-env NODE_ENV=development nodemon index.js",
     "test:start": "cross-env NODE_ENV=testing jest --watch",
     "test:once": "cross-env NODE_ENV=testing jest"

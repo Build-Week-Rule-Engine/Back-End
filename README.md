@@ -1,6 +1,6 @@
 # Back-End
 
-### Types
+## Types
 
 ```ts
 /// Forms ///
@@ -11,25 +11,43 @@ type Form = {
   data : object,
 }
 
+type InternalForm = {
+  _id : number,
+  name : string,
+  data : string,
+}
+
 /// Trees ///
 
 type Tree = {
   _id : number,
+  form_id : number,
   name : string,
   data : object,
 }
 
-/// Users ///
-
-type OwnUser = {
+type InternalTree = {
   _id : number,
-  username : string,
-  email : string,
+  form_id : number,
+  name : string,
+  data : string,
 }
 
-type PublicUser = {
+/// Users ///
+
+type User = {
   _id : number,
+  name : string | null,
+  email : string,
   username : string,
+}
+
+type InternalUser = {
+  _id : number,
+  name : string | null,
+  email : string,
+  username : string,
+  hash : string,
 }
 
 /// Responses ///
@@ -81,7 +99,7 @@ type Auth_SignIn_Request = {
 type Auth_Response = Auth_SuccessResponse | Auth_FailureResponse
 
 type Auth_SuccessResponse = SuccessResponse & {
-  user : OwnUser,
+  user : User,
   token : string,
 }
 
@@ -105,12 +123,12 @@ type Auth_FailureResponse = FailureResponse
 
 type Forms_POST_Request = {
   name : string,
-  data : string,
+  data : object,
 }
 
 type Forms_PUT_Request = {
   name ?: string,
-  data ?: string,
+  data ?: object,
 }
 ```
 
@@ -130,23 +148,19 @@ type Forms_PUT_Request = {
 type Trees_POST_Request = {
   form_id : number,
   name : string,
-  data : string,
+  data : object,
 }
 
 type Trees_PUT_Request = {
   form_id ?: number,
   name ?: string,
-  data ?: string,
+  data ?: object,
 }
 ```
 
 ### Users Routes
 
-| route                 | method | description                 | auth? | `request.body` | `response.body`                         | status     |
-|-----------------------|--------|-----------------------------|-------|----------------|-----------------------------------------|------------|
-| `/api/users`          | `GET`  | Get list of all users.      | TBD   | none           | `Array <PublicUser> \| FailureResponse` | **online** |
-| `/api/users/:user_id` | `GET`  | Get specific list by `_id`. | TBD   | none           | `PublicUser \| FailureResponse`         | **online** |
-
-### More Routes...
-
-TBD
+| route                 | method | description                 | auth? | `request.body` | `response.body`                   | status     |
+|-----------------------|--------|-----------------------------|-------|----------------|-----------------------------------|------------|
+| `/api/users`          | `GET`  | Get list of all users.      | TBD   | none           | `Array <User> \| FailureResponse` | **online** |
+| `/api/users/:user_id` | `GET`  | Get specific list by `_id`. | TBD   | none           | `User \| FailureResponse`         | **online** |
