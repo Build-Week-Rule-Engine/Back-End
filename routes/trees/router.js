@@ -5,25 +5,19 @@
 const BASE = '/trees'
 const BY_ID = '/:tree_id'
 
-const {
-  Router,
-  middleware : { amigx, nope },
-} = require ('./__needs')
+const { Router } = require ('./__needs')
+const getAllTrees = require ('./getAllTrees')
+const getTreeByID = require ('./getTreeByID')
 
 /**************************************/
 
 const router = Router ()
 
 router.route (BASE)
-.get ((ri, ro) => {
-
-  ro
-  .status (200)
-  .json ({
-    'message' : 'hello world',
-  })
+.get (getAllTrees)
 
 router.route (BASE + BY_ID)
+.get (getTreeByID)
 
 /**************************************/
 
