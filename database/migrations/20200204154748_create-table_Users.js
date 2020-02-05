@@ -13,12 +13,17 @@ function up (knex) {
     .increments ('_id')
 
     table
-    .string ('username', 255)
-    .notNullable ()
+    .string ('name', 255)
+    .nullable ()
     .unique ()
 
     table
     .string ('email', 255)
+    .notNullable ()
+    .unique ()
+
+    table
+    .string ('username', 255)
     .notNullable ()
     .unique ()
 
