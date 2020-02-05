@@ -15,12 +15,10 @@ function up (knex) {
     table
     .string ('name', 255)
     .notNullable ()
-    .unique ()
 
     table
     .string ('data', 4096)
     .notNullable ()
-    .unique ()
 
   })
 }
