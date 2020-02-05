@@ -15,8 +15,8 @@ function getFormByID (ri, ro) {
 
   const { form_id } = ri.params
 
-  Forms.getFirst ({ _id : form_id })
-  .then ((form) => {
+  Forms.get ({ _id : form_id })
+  .then (([ form ]) => {
 
     if (form !== undefined && form !== null) {
 

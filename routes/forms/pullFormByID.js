@@ -16,7 +16,7 @@ function pullFormByID (ri, ro) {
   const { form_id } = ri.params
 
   Forms.pull ({ _id : form_id })
-  .then ((form) => {
+  .then (([ form ]) => {
 
     if (form !== undefined && form !== null) {
 

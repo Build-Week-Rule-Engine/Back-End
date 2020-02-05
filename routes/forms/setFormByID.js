@@ -17,7 +17,7 @@ function setFormByID (ri, ro) {
   const data = ri.body
 
   Forms.set (data, { _id : form_id })
-  .then ((form) => {
+  .then (([ form ]) => {
 
     if (form !== undefined && form !== null) {
 
