@@ -2,7 +2,8 @@
 
 module.exports = [
   '_id',
-  'username',
+  'name',
   'email',
+  'username',
   'hash',
 ]
