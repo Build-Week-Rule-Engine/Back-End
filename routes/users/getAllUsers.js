@@ -24,7 +24,6 @@ function getAllUsers (ri, ro) {
   .catch ((error) => {
 
     console.log (error)
-
     nope.error (500, `internal server error when getting all users`) (ri, ro)
 
   })
