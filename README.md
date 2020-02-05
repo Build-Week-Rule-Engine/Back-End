@@ -88,6 +88,29 @@ type Auth_SuccessResponse = SuccessResponse & {
 type Auth_FailureResponse = FailureResponse
 ```
 
+### Forms Routes
+
+| route                 | method   | description                      | auth? | `request.body`       | `response.body`                  | status          |
+|-----------------------|----------|----------------------------------|-------|----------------------|----------------------------------|-----------------|
+| `/api/forms`          | `GET`    | Get a list of all forms.         | TBD   | none                 | `Array <Form> | FailureResponse` | **in progress** |
+| `/api/forms`          | `POST`   | Add a new form.                  | TBD   | `Forms_POST_Request` | `Form | FailureResponse`         | **in progress** |
+| `/api/forms/:form_id` | `GET`    | Get a specific form by `_id`.    | TBD   | none                 | `Form | FailureResponse`         | **in progress** |
+| `/api/forms/:form_id` | `PUT`    | Update a specific form by `_id`. | TBD   | `Forms_PUT_Request`  | `Form | FailureResponse`         | **in progress** |
+| `/api/forms/:form_id` | `DELETE` | Delete a specific form by `_id`. | TBD   | none                 | `Form | FailureResponse`         | **in progress** |
+
+```ts
+/// Requests ///
+
+type Forms_POST_Request = {
+  name : string,
+  data : string,
+}
+
+type Forms_PUT_Request = {
+  name ?: string,
+  data ?: string,
+}
+```
 ### More Routes...
 
 TBD
