@@ -35,7 +35,6 @@ function getUserByID (ri, ro) {
   .catch ((error) => {
 
     console.log (error)
-
     nope.error (500, `internal server error when getting user with id ${user_id}`) (ri, ro)
 
   })

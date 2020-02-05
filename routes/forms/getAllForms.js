@@ -1,30 +1,30 @@
 /**************************************/
 
-module.exports = getAllUsers
+module.exports = getAllForms
 
 /**************************************/
 
 const {
   middleware : { nope },
-  database : { models : { Users } },
+  database : { models : { Forms } },
 } = require ('./__needs')
 
 /**************************************/
 
-function getAllUsers (ri, ro) {
+function getAllForms (ri, ro) {
 
-  Users.getAll ()
-  .then ((users) => {
+  Forms.getAll ()
+  .then ((forms) => {
 
     ro
     .status (200)
-    .json (users)
+    .json (forms)
 
   })
   .catch ((error) => {
 
     console.log (error)
-    nope.error (500, `internal server error when getting all users`) (ri, ro)
+    nope.error (500, `internal server error when getting all forms`) (ri, ro)
 
   })
 
