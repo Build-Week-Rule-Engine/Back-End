@@ -88,6 +88,32 @@ type Auth_SuccessResponse = SuccessResponse & {
 type Auth_FailureResponse = FailureResponse
 ```
 
+### Trees Routes
+
+| route                 | method   | description                      | auth? | `request.body`       | `response.body`                  | status          |
+|-----------------------|----------|----------------------------------|-------|----------------------|----------------------------------|-----------------|
+| `/api/trees`          | `GET`    | Get a list of all trees.         | TBD   | none                 | `Array <Tree> | FailureResponse` | **in progress** |
+| `/api/trees`          | `POST`   | Add a new tree.                  | TBD   | `Trees_POST_Request` | `Tree | FailureResponse`         | **in progress** |
+| `/api/trees/:tree_id` | `GET`    | Get a specific tree by `_id`.    | TBD   | none                 | `Tree | FailureResponse`         | **in progress** |
+| `/api/trees/:tree_id` | `PUT`    | Update a specific tree by `_id`. | TBD   | `Trees_PUT_Request`  | `Tree | FailureResponse`         | **in progress** |
+| `/api/trees/:tree_id` | `DELETE` | Delete a specific tree by `_id`. | TBD   | none                 | `Tree | FailureResponse`         | **in progress** |
+
+```ts
+/// Requests ///
+
+type Trees_POST_Request = {
+  form_id : number,
+  name : string,
+  data : string,
+}
+
+type Trees_PUT_Request = {
+  form_id ?: number,
+  name ?: string,
+  data ?: string,
+}
+```
+
 ### Users Routes
 
 | route                 | method | description                 | auth? | `request.body` | `response.body`                        | status          |
