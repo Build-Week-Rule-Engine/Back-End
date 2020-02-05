@@ -52,7 +52,7 @@ type FailureResponse = {
 }
 ```
 
-### User Auth Routes
+### Auth Routes
 
 | route            | method | description                            | auth? | `request.body`        | `response.body` | status     |
 |------------------|--------|----------------------------------------|-------|-----------------------|-----------------|------------|
