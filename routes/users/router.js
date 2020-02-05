@@ -3,26 +3,21 @@
 ***********************************************************/
 
 const BASE = '/users'
+const BY_ID = '/:user_id'
 
-const {
-  Router,
-  middleware : { amigx, nope },
-} = require ('./__needs')
+const { Router } = require ('./__needs')
+const getAllUsers = require ('./getAllUsers')
+const getUserByID = require ('./getUserByID')
 
 /**************************************/
 
 const router = Router ()
 
 router.route (BASE)
-.get ((ri, ro) => {
+.get (getAllUsers)
 
-  ro
-  .status (200)
-  .json ({
-    'message' : 'hello world',
-  })
-
-})
+router.route (BASE + BY_ID)
+.get (getUserByID)
 
 /**************************************/
 
