@@ -22,6 +22,7 @@ function authenticate (ri, ro, next) {
 
       if (error) {
 
+        console.log (error)
         nope.invalidCredentials () (ri, ro)
 
       }
@@ -29,8 +30,8 @@ function authenticate (ri, ro, next) {
 
         ri.user = {
           _id : decrypted._id,
-          username : decrypted.username,
           email : decrypted.email,
+          username : decrypted.username,
         }
 
         next ()
@@ -42,7 +43,7 @@ function authenticate (ri, ro, next) {
   }
   else {
 
-    nope.invalidCredentials () (ri, ro)
+    nope.notAuthenticated () (ri, ro)
 
   }
 
