@@ -11,6 +11,7 @@ function error (
   restOfResponse = {},
 ) {
   return (ri, ro) => (
+
     ro
     .status (statusCode)
     .json ({
@@ -23,5 +24,6 @@ function error (
       },
       ...restOfResponse,
     })
+
   )
 }
