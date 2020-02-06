@@ -4,7 +4,7 @@ const { config, database } = require ('./__needs')
 
 /**************************************/
 
-describe ('database', () => {
+describe (`database`, () => {
 
   /// STUFF HAPPENS AT ALL ///
   test (`runs tests`, () => {

@@ -4,9 +4,11 @@ const request = require ('supertest')
 
 const { config, app } = require ('./__needs')
 
+const BASE = '/auth'
+
 /**************************************/
 
-describe ('/auth', () => {
+describe (BASE, () => {
 
   /// STUFF HAPPENS AT ALL ///
   test (`runs tests`, () => {

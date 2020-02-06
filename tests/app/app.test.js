@@ -4,9 +4,11 @@ const request = require ('supertest')
 
 const { config, app } = require ('./__needs')
 
+const BASE = '/'
+
 /**************************************/
 
-describe ('app', () => {
+describe (BASE, () => {
 
   /// STUFF HAPPENS AT ALL ///
   test (`runs tests`, () => {
@@ -32,7 +34,7 @@ describe ('app', () => {
 
     /// ROUTE INFO ///
 
-    describe ('GET /', () => {
+    describe (`GET ${BASE}`, () => {
 
       /// STATUS CODE? ///
 
