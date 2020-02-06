@@ -30,6 +30,40 @@ describe ('app', () => {
 
   if (config.NODE_ENV === 'testing') {
 
+    /// ROUTE INFO ///
+
+    describe ('GET /', () => {
+
+      /// STATUS CODE? ///
+
+      test (`responds with 200 OK`, async () => {
+
+        return (
+          await request (app)
+          .get ('/')
+          .then ((re) => {
+            expect (re.status) .toEqual (200)
+          })
+        )
+
+      })
+
+      /// RESPONSE TYPE? ///
+
+      test (`responds with JSON body`, async () => {
+
+        return (
+          await request (app)
+          .post ('/')
+          .then ((re) => {
+            expect (re.type).toMatch (/json/i)
+          })
+        )
+
+      })
+
+    })
+
   }
 
 })
