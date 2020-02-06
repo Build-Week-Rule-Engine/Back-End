@@ -6,6 +6,7 @@ const BASE = '/api'
 
 const {
   Router,
+  middleware : { amigx },
 } = require ('./__needs')
 
 /**************************************/
@@ -13,6 +14,8 @@ const {
 const router = Router ()
 
 router.use (BASE,
+
+  amigx.authenticate,
 
   require ('../forms'),
   require ('../trees'),
