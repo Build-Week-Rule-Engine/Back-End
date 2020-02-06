@@ -2,7 +2,7 @@
 
 module.exports = {
 
-  respond : require ('./respond'),
+  response : require ('./response'),
 
   routeInfo : require ('./route-info'),
 
