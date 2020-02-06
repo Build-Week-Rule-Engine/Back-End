@@ -42,7 +42,7 @@ function authenticate (ri, ro, next) {
   }
   else {
 
-    nope.invalidCredentials () (ri, ro)
+    nope.notAuthenticated () (ri, ro)
 
   }
 
