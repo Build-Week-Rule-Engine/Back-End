@@ -52,6 +52,10 @@ type InternalUser = {
 
 /// Responses ///
 
+type InfoResponse = SuccessResponse & {
+  info : object,
+}
+
 type SuccessResponse = {
   message : string,
   ...object,
@@ -68,7 +72,17 @@ type FailureResponse = {
 }
 ```
 
+## Base
+
+| route | method | description                                | `request.body` | `response.body` | auth?   | status     |
+|-------|--------|--------------------------------------------|----------------|-----------------|---------|------------|
+| `/`   | `GET`  | Get info about available routes & methods. | none           | `InfoResponse`  | no      | **online** |
+
 ## Auth
+
+| route     | method | description                                | `request.body` | `response.body` | auth?   | status     |
+|-----------|--------|--------------------------------------------|----------------|-----------------|---------|------------|
+| `/auth`   | `GET`  | Get info about available routes & methods. | none           | `InfoResponse`  | no      | **online** |
 
 ### Routes
 
@@ -107,6 +121,10 @@ type Auth_FailureResponse = FailureResponse
 ```
 
 ## API
+
+| route    | method | description                                | `request.body` | `response.body` | auth?   | status     |
+|----------|--------|--------------------------------------------|----------------|-----------------|---------|------------|
+| `/api`   | `GET`  | Get info about available routes & methods. | none           | `InfoResponse`  | **yes** | **online** |
 
 ### Forms Routes
 
