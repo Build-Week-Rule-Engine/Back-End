@@ -3,7 +3,7 @@
 ***********************************************************/
 
 const BASE = '/auth'
-const INFO = require ('./info.json')
+const INFO = require ('./info')
 
 const {
   Router,
