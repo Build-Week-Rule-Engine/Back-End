@@ -56,7 +56,7 @@ describe (BASE, () => {
 
         return (
           await request (app)
-          .post ('/')
+          .get ('/')
           .then ((re) => {
             expect (re.type).toMatch (/json/i)
           })
