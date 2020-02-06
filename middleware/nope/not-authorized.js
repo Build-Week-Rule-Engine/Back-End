@@ -8,7 +8,7 @@ const nopeError = require ('./error')
 
 function nopeNotAuthorized (
   errorMessage = 'request not authorized',
-  ...rest,
+  ...rest
 ) {
   return nopeError (403, errorMessage, ...rest)
 }

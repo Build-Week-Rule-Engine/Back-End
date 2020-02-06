@@ -8,7 +8,7 @@ const nopeError = require ('./error')
 
 function nopeBadRequest (
   errorMessage = 'bad request',
-  ...rest,
+  ...rest
 ) {
   return nopeError (400, errorMessage, ...rest)
 }

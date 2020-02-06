@@ -8,7 +8,7 @@ const nopeError = require ('./error')
 
 function nopeNotAuthenticated (
   errorMessage = 'request not authenticated',
-  ...rest,
+  ...rest
 ) {
   return nopeError (401, errorMessage, ...rest)
 }
