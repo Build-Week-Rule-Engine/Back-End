@@ -10,5 +10,9 @@ function nopeNotImplemented (
   errorMessage = 'request not implemented',
   ...rest
 ) {
-  return nopeError (501, errorMessage, ...rest)
+  return nopeError (
+    501,
+    errorMessage,
+    ...rest,
+  )
 }

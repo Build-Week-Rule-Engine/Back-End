@@ -10,5 +10,9 @@ function nopeBadRequest (
   errorMessage = 'bad request',
   ...rest
 ) {
-  return nopeError (400, errorMessage, ...rest)
+  return nopeError (
+    400,
+    errorMessage,
+    ...rest,
+  )
 }

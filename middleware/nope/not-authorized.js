@@ -10,5 +10,9 @@ function nopeNotAuthorized (
   errorMessage = 'request not authorized',
   ...rest
 ) {
-  return nopeError (403, errorMessage, ...rest)
+  return nopeError (
+    403,
+    errorMessage,
+    ...rest,
+  )
 }

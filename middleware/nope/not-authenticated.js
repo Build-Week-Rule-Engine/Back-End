@@ -10,5 +10,9 @@ function nopeNotAuthenticated (
   errorMessage = 'request not authenticated',
   ...rest
 ) {
-  return nopeError (401, errorMessage, ...rest)
+  return nopeError (
+    401,
+    errorMessage,
+    ...rest,
+  )
 }

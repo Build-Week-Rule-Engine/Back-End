@@ -10,5 +10,9 @@ function nopeNotFound (
   errorMessage = 'resource not found',
   ...rest
 ) {
-  return nopeError (404, errorMessage, ...rest)
+  return nopeError (
+    404,
+    errorMessage,
+    ...rest,
+  )
 }

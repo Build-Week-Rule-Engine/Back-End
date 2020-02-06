@@ -10,5 +10,9 @@ function nopeInvalidCredentials (
   errorMessage = 'invalid credentials',
   ...rest
 ) {
-  return nopeError (401, errorMessage, ...rest)
+  return nopeError (
+    401,
+    errorMessage,
+    ...rest,
+  )
 }
