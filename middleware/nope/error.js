@@ -4,8 +4,14 @@ module.exports = error
 
 /**************************************/
 
-function error (statusCode, errorMessage) {
+function error (
+  statusCode = 500,
+  errorMessage = 'server error',
+  restOfError = {},
+  restOfResponse = {},
+) {
   return (ri, ro) => (
+
     ro
     .status (statusCode)
     .json ({
@@ -14,7 +20,10 @@ function error (statusCode, errorMessage) {
         'status' : statusCode,
         'method' : ri.method,
         'route' : ri.originalUrl,
-      }
+        ...restOfError,
+      },
+      ...restOfResponse,
     })
+
   )
 }
