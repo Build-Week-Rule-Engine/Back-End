@@ -4,16 +4,12 @@ module.exports = welcome
 
 /**************************************/
 
-function welcome (user, token) {
-  return (ri, ro) => {
+const ok = require ('../ok')
 
-    ro
-    .status (200)
-    .json ({
-      'message' : `Welcome, ${user.username}. Here... Take this.`,
-      user,
-      token,
-    })
-
-  }
+function welcome (user, token, ...rest) {
+  return ok.response (
+    200,
+    `Welcome, ${user.username}. Here... Take this.`,
+    { user, token, ...rest },
+  )
 }
