@@ -22,6 +22,7 @@ function authenticate (ri, ro, next) {
 
       if (error) {
 
+        console.log (error)
         nope.invalidCredentials () (ri, ro)
 
       }
