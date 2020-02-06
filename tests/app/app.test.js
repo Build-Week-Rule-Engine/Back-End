@@ -42,7 +42,7 @@ describe (BASE, () => {
 
         return (
           await request (app)
-          .get ('/')
+          .get (BASE)
           .then ((re) => {
             expect (re.status) .toEqual (200)
           })
@@ -56,7 +56,7 @@ describe (BASE, () => {
 
         return (
           await request (app)
-          .get ('/')
+          .get (BASE)
           .then ((re) => {
             expect (re.type).toMatch (/json/i)
           })
