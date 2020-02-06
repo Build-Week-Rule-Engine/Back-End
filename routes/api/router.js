@@ -3,10 +3,11 @@
 ***********************************************************/
 
 const BASE = '/api'
+const INFO = require ('./info.json')
 
 const {
   Router,
-  middleware : { amigx },
+  middleware : { ok, amigx },
 } = require ('./__needs')
 
 /**************************************/
@@ -24,23 +25,7 @@ router.use (BASE,
 )
 
 router.route (BASE)
-.get ((ri, ro) => {
-
-  ro
-  .status (200)
-  .json ({
-    'message' : 'Hello. Please refer to the available routes.',
-    'routes' : {
-      '/forms' : [ 'GET' ],
-      '/forms/:form_id' : [ 'GET' ],
-      '/trees' : [ 'GET', 'POST' ],
-      '/trees/:tree_id' : [ 'GET', 'PUT', 'DELETE' ],
-      '/users' : [ 'GET' ],
-      '/users/:user_id' : [ 'GET' ],
-    },
-  })
-
-})
+.get (ok.routeInfo (INFO))
 
 /**************************************/
 

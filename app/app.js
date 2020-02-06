@@ -3,10 +3,11 @@
 ***********************************************************/
 
 const BASE = '/'
+const INFO = require ('./info.json')
 
 const {
   Server,
-  middleware : { nope },
+  middleware : { ok, nope },
 } = require ('./__needs')
 
 /**************************************/
@@ -26,20 +27,7 @@ app.use (BASE,
 )
 
 app.route (BASE)
-.get ((ri, ro) => {
-
-  ro
-  .status (200)
-  .json ({
-    'message' : 'Hello. Please refer to the available routes.',
-    'routes' : {
-      [BASE] : [ 'GET' ],
-      '/auth' : [ 'GET' ],
-      '/api' : [ 'GET' ],
-    },
-  })
-
-})
+.get (ok.routeInfo (INFO))
 
 app.route ('*')
 .all (
