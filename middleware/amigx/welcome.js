@@ -2,6 +2,8 @@
 
 module.exports = welcome
 
+/**************************************/
+
 function welcome (user, token) {
   return (ri, ro) => {
 
