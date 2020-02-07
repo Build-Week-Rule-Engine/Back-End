@@ -158,20 +158,96 @@ describe (BASE, () => {
 
     })
 
+    /***************************************
+      USER SIGN-IN
+    ***************************************/
+
+    describe (`POST ${BASE}/sign-in`, async () => {
+
+      const PATH = BASE + '/sign-in'
+
+      beforeAll (async () => {
+        await db ('users').truncate ()
+
+        await request (app)
+        .post (BASE + '/sign-up')
+        .send (TEST_DATA.SignUp.good)
+        .then ((re) => {})
+      })
+
+      afterAll (async () => {
+        await db ('users').truncate ()
+      })
+
+      /// BAD REQUESTS ARE BAD? ///
+
+      describe (`what happens when request does not have username, password`, async () => {
+
+        /// STATUS CODE? ///
+
+        test (`responds with 400 BAD REQUEST`, async () => {
+
+          return (
+            await request (app)
+            .post (PATH)
+            .send (TEST_DATA.SignIn.bad)
+            .then ((re) => {
+              expect (re.status).toEqual (400)
+            })
+          )
+
+        })
+
+        /// RESPONSE TYPE? ///
+
+        test (`responds with JSON body`, async () => {
+
+          return (
+            await request (app)
+            .post (PATH)
+            .send (TEST_DATA.SignIn.bad)
+            .then ((re) => {
+              expect (re.type).toMatch (/json/i)
+            })
+          )
+
+        })
 
       })
 
-      /// RESPONSE TYPE? ///
+      /// GOOD REQUESTS ARE GOOD? ///
 
-      test (`responds with JSON body`, async () => {
+      describe (`what happens when request has username, password`, async () => {
 
-        return (
-          await request (app)
-          .get (BASE)
-          .then ((re) => {
-            expect (re.type).toMatch (/json/i)
-          })
-        )
+        /// STATUS CODE? ///
+
+        test (`responds with 200 OK`, async () => {
+
+          return (
+            await request (app)
+            .post (PATH)
+            .send (TEST_DATA.SignIn.good)
+            .then ((re) => {
+              expect (re.status).toEqual (200)
+            })
+          )
+
+        })
+
+        /// RESPONSE TYPE? ///
+
+        test (`responds with JSON body`, async () => {
+
+          return (
+            await request (app)
+            .post (PATH)
+            .send (TEST_DATA.SignIn.good)
+            .then ((re) => {
+              expect (re.type).toMatch (/json/i)
+            })
+          )
+
+        })
 
       })
 
