@@ -46,7 +46,7 @@ describe (BASE, () => {
           await request (app)
           .get (PATH)
           .then ((re) => {
-            expect (re.status) .toEqual (200)
+            expect (re.status).toEqual (200)
           })
         )
 
