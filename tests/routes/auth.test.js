@@ -68,6 +68,96 @@ describe (BASE, () => {
 
     })
 
+    /***************************************
+      USER SIGN-UP
+    ***************************************/
+
+    describe (`POST ${BASE}/sign-up`, async () => {
+
+      const PATH = BASE + '/sign-up'
+
+      beforeEach (async () => {
+        await db ('Users').truncate ()
+      })
+
+      afterAll (async () => {
+        await db ('Users').truncate ()
+      })
+
+      /// BAD REQUESTS ARE BAD? ///
+
+      describe (`what happens when request does not have username, password`, async () => {
+
+        /// STATUS CODE? ///
+
+        test (`responds with 400 BAD REQUEST`, async () => {
+
+          return (
+            await request (app)
+            .post (PATH)
+            .send (TEST_DATA.SignUp.bad)
+            .then ((re) => {
+              expect (re.status).toEqual (400)
+            })
+          )
+
+        })
+
+        /// RESPONSE TYPE? ///
+
+        test (`responds with JSON body`, async () => {
+
+          return (
+            await request (app)
+            .post (PATH)
+            .send (TEST_DATA.SignUp.bad)
+            .then ((re) => {
+              expect (re.type).toMatch (/json/i)
+            })
+          )
+
+        })
+
+      })
+
+      /// GOOD REQUESTS ARE GOOD? ///
+
+      describe (`what happens when request has username, password`, async () => {
+
+        /// STATUS CODE? ///
+
+        test (`responds with 200 OK`, async () => {
+
+          return (
+            await request (app)
+            .post (PATH)
+            .send (TEST_DATA.SignUp.good)
+            .then ((re) => {
+              expect (re.status).toEqual (200)
+            })
+          )
+
+        })
+
+        /// RESPONSE TYPE? ///
+
+        test (`responds with JSON body`, async () => {
+
+          return (
+            await request (app)
+            .post (PATH)
+            .send (TEST_DATA.SignUp.good)
+            .then ((re) => {
+              expect (re.type).toMatch (/json/i)
+            })
+          )
+
+        })
+
+      })
+
+    })
+
 
       })
 
