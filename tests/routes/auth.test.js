@@ -36,17 +36,38 @@ describe (BASE, () => {
 
     describe (`GET ${BASE}`, () => {
 
+      const PATH = BASE
+
       /// STATUS CODE? ///
 
       test (`responds with 200 OK`, async () => {
 
         return (
           await request (app)
-          .get (BASE)
+          .get (PATH)
           .then ((re) => {
             expect (re.status) .toEqual (200)
           })
         )
+
+      })
+
+      /// RESPONSE TYPE? ///
+
+      test (`responds with JSON body`, async () => {
+
+        return (
+          await request (app)
+          .get (PATH)
+          .then ((re) => {
+            expect (re.type).toMatch (/json/i)
+          })
+        )
+
+      })
+
+    })
+
 
       })
 

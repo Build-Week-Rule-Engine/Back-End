@@ -32,6 +32,8 @@ describe (BASE, () => {
 
   if (config.NODE_ENV === 'testing') {
 
+    const PATH = BASE
+
     /// ROUTE INFO ///
 
     describe (`GET ${BASE}`, () => {
@@ -42,7 +44,7 @@ describe (BASE, () => {
 
         return (
           await request (app)
-          .get (BASE)
+          .get (PATH)
           .then ((re) => {
             expect (re.status) .toEqual (200)
           })
@@ -56,7 +58,7 @@ describe (BASE, () => {
 
         return (
           await request (app)
-          .get (BASE)
+          .get (PATH)
           .then ((re) => {
             expect (re.type).toMatch (/json/i)
           })
