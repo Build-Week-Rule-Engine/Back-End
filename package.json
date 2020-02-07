@@ -13,8 +13,8 @@
     "dev:knex:rebuild": "knex migrate:rollback --env=development && knex migrate:latest --env=development && knex seed:run --env=development",
     "dev:start": "cross-env NODE_ENV=development nodemon index.js",
     "test:knex:rebuild": "knex migrate:rollback --env=testing && knex migrate:latest --env=testing && knex seed:run --env=testing",
-    "test:start": "cross-env NODE_ENV=testing jest --watch",
-    "test:once": "cross-env NODE_ENV=testing jest"
+    "test:start": "cross-env NODE_ENV=testing jest --runInBand --watch",
+    "test:once": "cross-env NODE_ENV=testing jest --runInBand --forceExit"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
