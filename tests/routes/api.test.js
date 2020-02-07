@@ -2,7 +2,7 @@
 
 const request = require ('supertest')
 
-const { config, app } = require ('./__needs')
+const { config, app, database : { db }, TEST_DATA } = require ('./__needs')
 
 const BASE = '/api'
 
@@ -37,6 +37,22 @@ describe (BASE, () => {
     describe (`GET ${BASE}`, () => {
 
       const PATH = BASE
+      let token
+
+      beforeAll (async () => {
+        await db ('Users').truncate ()
+
+        await request (app)
+        .post ('/auth/sign-up')
+        .send (TEST_DATA.SignUp.good)
+        .then ((re) => {
+          token = re.body.token
+        })
+      })
+
+      afterAll (async () => {
+        await db ('Users').truncate ()
+      })
 
       /// STATUS CODE? ///
 
@@ -45,6 +61,7 @@ describe (BASE, () => {
         return (
           await request (app)
           .get (PATH)
+          .set ('Authorization', token)
           .then ((re) => {
             expect (re.status).toEqual (200)
           })
@@ -59,6 +76,7 @@ describe (BASE, () => {
         return (
           await request (app)
           .get (PATH)
+          .set ('Authorization', token)
           .then ((re) => {
             expect (re.type).toMatch (/json/i)
           })
