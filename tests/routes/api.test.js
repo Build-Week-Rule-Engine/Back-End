@@ -46,6 +46,7 @@ describe (BASE, () => {
         .post ('/auth/sign-up')
         .send (TEST_DATA.SignUp.good)
         .then ((re) => {
+          console.log (re.body)
           token = re.body.token
         })
       })
