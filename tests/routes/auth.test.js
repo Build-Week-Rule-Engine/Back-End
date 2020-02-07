@@ -2,7 +2,7 @@
 
 const request = require ('supertest')
 
-const { config, app } = require ('./__needs')
+const { config, app, database : { db }, TEST_DATA } = require ('./__needs')
 
 const BASE = '/auth'
 
