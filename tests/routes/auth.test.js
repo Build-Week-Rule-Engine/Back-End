@@ -167,7 +167,7 @@ describe (BASE, () => {
       const PATH = BASE + '/sign-in'
 
       beforeAll (async () => {
-        await db ('users').truncate ()
+        await db ('Users').truncate ()
 
         await request (app)
         .post (BASE + '/sign-up')
@@ -176,7 +176,7 @@ describe (BASE, () => {
       })
 
       afterAll (async () => {
-        await db ('users').truncate ()
+        await db ('Users').truncate ()
       })
 
       /// BAD REQUESTS ARE BAD? ///
