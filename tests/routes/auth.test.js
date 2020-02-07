@@ -72,7 +72,7 @@ describe (BASE, () => {
       USER SIGN-UP
     ***************************************/
 
-    describe (`POST ${BASE}/sign-up`, async () => {
+    describe (`POST ${BASE}/sign-up`, () => {
 
       const PATH = BASE + '/sign-up'
 
@@ -86,7 +86,7 @@ describe (BASE, () => {
 
       /// BAD REQUESTS ARE BAD? ///
 
-      describe (`what happens when request does not have username, password`, async () => {
+      describe (`what happens when request does not have username, password`, () => {
 
         /// STATUS CODE? ///
 
@@ -122,7 +122,7 @@ describe (BASE, () => {
 
       /// GOOD REQUESTS ARE GOOD? ///
 
-      describe (`what happens when request has username, password`, async () => {
+      describe (`what happens when request has username, password`, () => {
 
         /// STATUS CODE? ///
 
@@ -162,7 +162,7 @@ describe (BASE, () => {
       USER SIGN-IN
     ***************************************/
 
-    describe (`POST ${BASE}/sign-in`, async () => {
+    describe (`POST ${BASE}/sign-in`, () => {
 
       const PATH = BASE + '/sign-in'
 
@@ -181,7 +181,7 @@ describe (BASE, () => {
 
       /// BAD REQUESTS ARE BAD? ///
 
-      describe (`what happens when request does not have username, password`, async () => {
+      describe (`what happens when request does not have username, password`, () => {
 
         /// STATUS CODE? ///
 
@@ -217,7 +217,7 @@ describe (BASE, () => {
 
       /// GOOD REQUESTS ARE GOOD? ///
 
-      describe (`what happens when request has username, password`, async () => {
+      describe (`what happens when request has username, password`, () => {
 
         /// STATUS CODE? ///
 
